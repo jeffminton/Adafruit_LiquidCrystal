@@ -314,13 +314,13 @@ void Adafruit_LiquidCrystal::noAutoscroll(void) {
 
 // Allows us to fill the first 8 CGRAM locations
 // with custom characters
-void Adafruit_LiquidCrystal::createChar(uint8_t location, uint8_t charmap[]) {
-  location &= 0x7; // we only have 8 locations 0-7
-  command(LCD_SETCGRAMADDR | (location << 3));
-  for (int i=0; i<8; i++) {
-    write(charmap[i]);
-  }
-}
+// void Adafruit_LiquidCrystal::createChar(uint8_t location, uint8_t charmap[]) {
+//   location &= 0x7; // we only have 8 locations 0-7
+//   command(LCD_SETCGRAMADDR | (location << 3));
+//   for (int i=0; i<8; i++) {
+//     write(charmap[i]);
+//   }
+// }
 
 /*********** mid level commands, for sending data/cmds */
 
@@ -328,16 +328,16 @@ inline void Adafruit_LiquidCrystal::command(uint8_t value) {
   send(value, LOW);
 }
 
-#if ARDUINO >= 100
-inline size_t Adafruit_LiquidCrystal::write(uint8_t value) {
-  send(value, HIGH);
-  return 1;
-}
-#else
-inline void Adafruit_LiquidCrystal::write(uint8_t value) {
-  send(value, HIGH);
-}
-#endif
+// #if ARDUINO >= 100
+// inline size_t Adafruit_LiquidCrystal::write(uint8_t value) {
+//   send(value, HIGH);
+//   return 1;
+// }
+// #else
+// inline void Adafruit_LiquidCrystal::write(uint8_t value) {
+//   send(value, HIGH);
+// }
+// #endif
 
 /************ low level data pushing commands **********/
 
