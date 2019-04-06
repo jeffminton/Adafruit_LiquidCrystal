@@ -29,6 +29,9 @@
 // can't assume that its in that state when a sketch starts (and the
 // Adafruit_LiquidCrystal constructor is called).
 
+// Default Constructor
+Adafruit_LiquidCrystal::Adafruit_LiquidCrystal() {}
+
 Adafruit_LiquidCrystal::Adafruit_LiquidCrystal(uint8_t rs, uint8_t rw, uint8_t enable,
 			     uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
 			     uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7)
@@ -55,6 +58,7 @@ Adafruit_LiquidCrystal::Adafruit_LiquidCrystal(uint8_t rs,  uint8_t enable,
   init(1, rs, 255, enable, d0, d1, d2, d3, 0, 0, 0, 0);
 }
 
+// I2C Constructor
 Adafruit_LiquidCrystal::Adafruit_LiquidCrystal(uint8_t i2caddr) {
   _i2cAddr = i2caddr;
 
@@ -73,6 +77,7 @@ Adafruit_LiquidCrystal::Adafruit_LiquidCrystal(uint8_t i2caddr) {
 }
 
 
+// SPI Constructor
 Adafruit_LiquidCrystal::Adafruit_LiquidCrystal(uint8_t data, uint8_t clock, uint8_t latch ) {
   _i2cAddr = 255;
 
